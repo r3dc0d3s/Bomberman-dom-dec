@@ -17,7 +17,7 @@ export const SERVER_TO_CLIENT_SHAPES = {
     type: "GAME_START", // required literal string
     countdown: "number", // seconds until game begins
   },
-  // GAME_STATE: authoritative snapshot, broadcast at 60Hz during gameplay.
+  // GAME_STATE: authoritative snapshot, broadcast at 20Hz during gameplay.
   GAME_STATE: {
     type: "GAME_STATE", // required literal string
     tick: "number", // server tick counter
@@ -41,7 +41,7 @@ export const SERVER_TO_CLIENT_SHAPES = {
         id: "string",
         x: "number",
         y: "number",
-        ticksRemaining: "number", // 180 ticks = 3s at 60Hz
+        ticksRemaining: "number", // 60 ticks = 3s at 20Hz
         playerId: "string",
       },
     ],

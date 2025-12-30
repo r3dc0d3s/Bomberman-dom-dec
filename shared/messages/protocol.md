@@ -139,7 +139,7 @@ Flow example:
 1) Client sends MOVE.
 2) Server validates.
 3) Server updates player in game state.
-4) Server broadcasts GAME_STATE on next tick.
+4) Server broadcasts GAME_STATE on next tick (20Hz for now).
 
 ---
 
@@ -154,7 +154,7 @@ Shape:
 Notes:
 - Server checks bomb limits and cooldown.
 - Server places bomb at player position in its state.
-- Server sets bomb timer (ticksRemaining = 180 for 3s at 60Hz).
+- Server sets bomb timer (ticksRemaining = 60 for 3s at 20Hz).
 
 Flow example:
 1) Client sends BOMB.
@@ -270,7 +270,7 @@ Shape:
 ```
 
 Notes:
-- This message is broadcast at 60Hz during gameplay.
+- This message is broadcast at 20Hz during gameplay.
 - Client should render all entities based on this.
 - Client should not “predict” or correct server positions.
 
@@ -346,7 +346,7 @@ Notes:
   - strip or escape unsafe chars
 
 ### 6.2 Game Loop Rules
-- Tick at 60Hz.
+- Tick at 20Hz (can be increased later if responsiveness suffers).
 - Each tick:
   - update movement
   - reduce bomb timers
